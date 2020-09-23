@@ -1,16 +1,21 @@
 import random
 
+# '
+# "
+# [
+
 # Nine local boards each with ten empty strings; the first nine for the spots
 # on the local board, the tenth indicating which player has "taken" the board
-board1 = [0,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
-board2 = [1,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
-board3 = [2,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
-board4 = [3,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
-board5 = [4,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
-board6 = [5,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
-board7 = [6,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
-board8 = [7,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
-board9 = [8,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
+spots = [' '] * 10
+board1 = [0] + spots
+board2 = [1] + spots 
+board3 = [2] + spots
+board4 = [3] + spots
+board5 = [4] + spots
+board6 = [5] + spots
+board7 = [6] + spots
+board8 = [7] + spots
+board9 = [8] + spots
 
 ## FOR TESTING
 #board1 = [1,'x','x','o','x','x','o','x','x','o','x']
@@ -153,21 +158,21 @@ def check_global_win(mark):
         tie_count += 1
 
 # Function for a single round        
-def single_round(a,b):
-    marking(board5,a)
+def single_round(one_player, another_player):
+    marking(board5, one_player)
     show_global()
     global roundon
     while roundon == True:
-        marking(next_board,b)
-        check_local_win(board_to_check,b)
+        marking(next_board, another_player)
+        check_local_win(board_to_check, another_player)
         show_global()
-        check_global_win(b)
+        check_global_win(another_player)
         if roundon == False:
             break
-        marking(next_board,a)
-        check_local_win(board_to_check,a)
+        marking(next_board,one_player)
+        check_local_win(board_to_check, one_player)
         show_global()
-        check_global_win(a)
+        check_global_win(one_player)
 
 ## UNCOMMENT FOR TESTING
 #wins1_count = 0
@@ -279,15 +284,16 @@ while gameon:
     while again == None:
         again = input('Play again? y/n ')
         if again == 'y':
-            board1 = [1,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
-            board2 = [2,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
-            board3 = [3,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
-            board4 = [4,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
-            board5 = [5,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
-            board6 = [6,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
-            board7 = [7,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
-            board8 = [8,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
-            board9 = [9,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
+            # spots = [' '] * 10
+            board1 = [0] + spots
+            board2 = [1] + spots 
+            board3 = [2] + spots
+            board4 = [3] + spots
+            board5 = [4] + spots
+            board6 = [5] + spots
+            board7 = [6] + spots
+            board8 = [7] + spots
+            board9 = [8] + spots
             show_global()
             print("\nBoard reset.")
             roundon = True
