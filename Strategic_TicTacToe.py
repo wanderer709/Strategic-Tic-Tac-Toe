@@ -7,15 +7,15 @@ import random
 # Nine local boards each with ten empty strings; the first nine for the spots
 # on the local board, the tenth indicating which player has "taken" the board
 spots = [' '] * 10
-board1 = [0] + spots
-board2 = [1] + spots 
-board3 = [2] + spots
-board4 = [3] + spots
-board5 = [4] + spots
-board6 = [5] + spots
-board7 = [6] + spots
-board8 = [7] + spots
-board9 = [8] + spots
+board1 = [1] + spots
+board2 = [2] + spots 
+board3 = [3] + spots
+board4 = [4] + spots
+board5 = [5] + spots
+board6 = [6] + spots
+board7 = [7] + spots
+board8 = [8] + spots
+board9 = [9] + spots
 
 ## FOR TESTING
 #board1 = [1,'x','x','o','x','x','o','x','x','o','x']
@@ -50,21 +50,21 @@ def show_global():
     print(f"{board1[1]}{board1[2]}{board1[3]}||{board2[1]}{board2[2]}{board2[3]}||{board3[1]}{board3[2]}{board3[3]}|")
     
 # Function for placing a single mark on the board    
-def marking(board,mark):
+def marking(local_board,mark):
     select = None
     board_select = None
     while select == None:
-        if board[10] == ' ' and board[1:10].count(' ') != 0:
-            print(f"Player {mark}, you are on local board ")
+        if local_board[10] == ' ' and local_board[1:10].count(' ') != 0:
+            print(f"Player {mark}, you are on local board {local_board[0]}")
             try:
                 select = int(input(f"Player {mark}: Enter the number for the square to place your mark."))
             except:
                 select = None
             if select in range(1,10):
-                if board[select] == ' ':
-                    board[select] = mark
+                if local_board[select] == ' ':
+                    local_board[select] = mark
                     global board_to_check
-                    board_to_check = board
+                    board_to_check = local_board
                     global next_board
                     next_board = board_dict[select]
                 else:
