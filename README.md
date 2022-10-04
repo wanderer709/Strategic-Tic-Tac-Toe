@@ -10,6 +10,3 @@ More complicated, challenging, (and fun!) version of Tic-Tac-Toe for two players
 - Game allows players to choose which player goes first or have the game choose at random.
 - Game keeps a scoreboard to show how many wins and ties each player has.
 
-## Sub header
-
-Text for sub header
